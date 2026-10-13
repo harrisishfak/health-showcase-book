@@ -1,0 +1,9 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { Sparkles } from "lucide-react";
+import { PageIntro, ModuleSection, CtaSection, Eyebrow } from "@/components/page-sections";
+import { features, pageHead } from "@/lib/site-content";
+
+export const Route = createFileRoute("/platform")({ head: () => pageHead("The CareVirt platform", "Explore individual profiles, scheduling, IEPs, Bloomy AI, team coordination, and progress reporting in CareVirt’s connected care-management platform."), component: Platform });
+function Platform() {
+ return <main><PageIntro eyebrow="The CareVirt platform" title={<>One place for care.<br/><em>A clearer day for everyone.</em></>} description="Bring your individual profiles, sessions, care plans, and progress together. CareVirt connects the work behind better care — without losing sight of the person receiving it." action/><div className="wrap"><section className="platform-detail"><div><Eyebrow>The everyday essentials</Eyebrow><h2 className="mt-4">From intake to insight.<br/>All connected.</h2><p>Purpose-built tools for autism and intellectual and developmental disabilities (IDD) care, designed around your center’s daily work.</p></div><div className="detail-list">{features.map(f => <article key={f.short}><f.icon/><h3>{f.short}</h3><p>{f.text}</p></article>)}</div></section><section className="platform-detail"><div><Eyebrow>Meet Bloomy AI</Eyebrow><h2 className="mt-4">More context.<br/>More informed decisions.</h2></div><div><Sparkles className="text-primary" size={28}/><p>Bloomy AI helps organize assessments and bring attention to patterns in IEP progress. Your team can review what’s changing, identify goals that may need attention, and plan a more informed next step.</p><p>AI supports your team’s judgment. It does not replace professional assessments, clinical decisions, or individualized care.</p></div></section></div><ModuleSection/><CtaSection/></main>;
+}
