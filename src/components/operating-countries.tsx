@@ -1,0 +1,3 @@
+export function OperatingCountries() {
+  return <section className="operations-band" aria-label="Countries where CareVirt operates"><div className="wrap operations-inner"><div className="operations-title">Supporting care across borders<span>Operating in Africa and South Asia</span></div><div className="country-list">{[{name:"Ghana",flag:"🇬🇭"},{name:"Pakistan",flag:"🇵🇰"},{name:"Bangladesh",flag:"🇧🇩"},{name:"South Africa",flag:"🇿🇦"}].map(c => <div className="country" key={c.name}><span className="country-flag" aria-hidden="true">{c.flag}</span>{c.name}</div>)}</div></div></section>;
+}
