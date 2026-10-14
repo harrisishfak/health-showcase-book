@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { HeartHandshake, Sprout, Target } from "lucide-react";
 import { PageIntro, Eyebrow, CtaSection } from "@/components/page-sections";
 import { pageHead } from "@/lib/site-content";
-import careStats from "@/assets/care-stats.jpg";
+import { CareWorkspace } from "@/components/care-workspace";
 import { OperatingCountries } from "@/components/operating-countries";
 
 export const Route = createFileRoute("/about")({ head: () => pageHead("Why CareVirt", "Our mission is to reduce operational complexity for autism and IDD care providers in low-resource settings, so they can focus on consistent, personalized care."), component: About });
