@@ -1,7 +1,7 @@
 # CareVirt website
-- [ ] Make the offerings section more convincing with benefit-led copy and visual examples.
-- [ ] Replace the awkward statistics image with a modern, interactive product presentation while preserving the bright, positive theme.
-- [ ] Verify the new homepage presentation and interactions.
+- [x] Make the offerings section more convincing with benefit-led copy and visual examples.
+- [x] Replace the awkward statistics image with a modern, interactive product presentation while preserving the bright, positive theme.
+- [x] Verify the new homepage presentation and interactions.
 - [x] Replace the rejected dark theme with a bright, open design across all pages.
 - [x] Remove human photos and introduce a sample statistics image.
 - [x] Highlight operations in Ghana, Pakistan, Bangladesh, and South Africa.

@@ -12,4 +12,5 @@
 ## Website architecture
 - Keep shared site navigation and footer in the root shell, with each content page in its own TanStack leaf route; this preserves consistent navigation and distinct page metadata.
 - Keep reusable brand styles in the global semantic design system and shared page sections in components; this makes all pages follow the same visual language.
+- Use a shared browser-safe CareWorkspace for illustrative product views, with sample data and local tab state only; this keeps product visuals crisp without implying a live customer dashboard.
 - Keep business content and page metadata helpers browser-safe and use the external Calendly embed for bookings; the brochure site does not need an internal booking backend.
