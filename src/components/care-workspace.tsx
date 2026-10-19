@@ -1,23 +1,31 @@
-import { useState } from "react";
-import { Activity, ArrowUpRight, CalendarDays, Check, ChevronRight, CircleCheck, ClipboardList, LayoutDashboard, PanelLeft, Plus, Search, Sparkles, UsersRound } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Bell, CalendarDays, CircleHelp, ClipboardList, Clock, House, ListChecks, Search, Settings, ShieldCheck, Sparkles, Sprout, UserRound, UsersRound } from "lucide-react";
 
-const views = [ { id: "overview", label: "Overview", icon: LayoutDashboard }, { id: "sessions", label: "Sessions", icon: CalendarDays }, { id: "plans", label: "Care plans", icon: ClipboardList } ] as const;
-type View = typeof views[number]["id"];
-const sessions = [ { initials: "YS", name: "Yahya Saad", therapy: "ABA therapy", time: "09:00", status: "Completed" }, { initials: "AY", name: "Ayesha Yousuf", therapy: "Speech therapy", time: "10:30", status: "Completed" }, { initials: "MR", name: "Muhammad Raza", therapy: "Occupational therapy", time: "12:00", status: "Upcoming" } ];
-const goals = [{ name: "Communication", value: 82, tone: "teal" }, { name: "Self-care", value: 67, tone: "blue" }, { name: "Social skills", value: 91, tone: "amber" }];
+const nav = [House, ListChecks, UserRound, ClipboardList, CalendarDays, UsersRound, Clock, CircleHelp, Settings];
+const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const onboarded = [2,3,3,5,7,6,8,9,11,12,14,16];
 
 export function CareWorkspace({ compact = false }: { compact?: boolean }) {
-  const [view, setView] = useState<View>("overview");
-  return <div className={`care-workspace ${compact ? "workspace-compact" : ""}`}>
-    <div className="workspace-chrome"><div className="chrome-dots"><span/><span/><span/></div><span><span className="secure-dot"/>carevirt / provider workspace</span><span className="workspace-sample">Sample data</span></div>
-    <div className="workspace-body"><aside className="workspace-sidebar"><div className="workspace-center"><span className="center-monogram">C</span><div>My care center<small>Provider workspace</small></div></div><div className="workspace-menu" role="tablist" aria-label="Product preview views">{views.map(v => <Button key={v.id} variant="ghost" role="tab" aria-selected={view === v.id} aria-controls="workspace-panel" id={`workspace-${v.id}`} className="workspace-menu-item" data-active={view === v.id} onClick={() => setView(v.id)}><v.icon/>{v.label}</Button>)}</div><div className="workspace-sidebar-note"><Sparkles size={16}/><strong>Care, connected.</strong><p>One shared view.<br/>A stronger team.</p></div><div className="workspace-team"><span>CV</span>Center administrator</div></aside>
-      <div className="workspace-content" id="workspace-panel" role="tabpanel" aria-labelledby={`workspace-${view}`}><div className="workspace-breadcrumb"><span><PanelLeft size={14}/>Workspace <ChevronRight size={12}/> {views.find(v => v.id === view)?.label}</span><Search size={15}/></div><div className="workspace-heading"><div><div className="workspace-kicker">YOUR CENTER, AT A GLANCE</div><h3>{view === "overview" ? "Good care starts with clarity." : view === "sessions" ? "Today’s care, all in view." : "Small steps. Shared goals."}</h3><p>{view === "overview" ? "Every session, every goal, one connected view." : view === "sessions" ? "See who’s scheduled and what’s been completed." : "Keep each individual’s progress visible to the team."}</p></div><span className="workspace-live"><span/>All connected</span></div>
-        <div className="workspace-metrics">{[{ icon: UsersRound, label: "Active individuals", value: "27", note: "Care starts with a complete picture" }, { icon: ClipboardList, label: "Active care plans", value: "15", note: "Individual goals, shared direction" }, { icon: CalendarDays, label: "Sessions today", value: "08", note: "Your team’s day, coordinated" }].map(m => <div className="workspace-metric" key={m.label}><div><span>{m.label}</span><m.icon size={16}/></div><strong>{m.value}</strong><small>{m.note}</small></div>)}</div>
-        <div className={`workspace-detail ${view === "sessions" ? "sessions-expanded" : ""}`}>
-          {view !== "plans" && <section className="workspace-sessions"><div className="workspace-panel-heading"><h4>Today’s sessions</h4><span>3 of 8 shown</span></div>{sessions.map(s => <div className="workspace-session" key={s.initials}><span className="workspace-avatar">{s.initials}</span><div><strong>{s.name}</strong><small>{s.therapy}</small></div><time>{s.time}</time><span className="workspace-status" data-complete={s.status === "Completed"}>{s.status === "Completed" && <Check size={11}/>}<span>{s.status}</span></span></div>)}</section>}
-          {view !== "sessions" && <section className="workspace-goals"><div className="workspace-panel-heading"><h4>{view === "plans" ? "Individualized goals" : "IEP goal progress"}</h4><Activity size={14}/></div>{goals.map(g => <div className="workspace-goal" key={g.name}><div><span>{g.name}</span><strong>{g.value}%</strong></div><progress value={g.value} max={100} data-tone={g.tone} aria-label={`${g.name} goal progress`}/></div>)}<div className="workspace-goal-foot"><CircleCheck size={13}/>Every session moves a goal forward.</div></section>}
-        </div><div className="workspace-insight"><div className="insight-symbol"><Sparkles size={16}/></div><div><strong>Bloomy AI <span>· Your care assistant</span></strong><p>Bring progress patterns into focus. Give your team more context for the next step.</p></div><ArrowUpRight size={16}/></div>
-      </div></div>
+  const max = Math.max(...onboarded);
+  const pts = onboarded.map((v, i) => `${(i / 11) * 100},${40 - (v / max) * 34}`).join(" ");
+  return <div className={`pcc ${compact ? "pcc-compact" : ""}`} role="img" aria-label="Illustrative CareVirt Provider Command Center with sample data">
+    <aside className="pcc-rail"><span className="pcc-logo">CV</span>{nav.map((Icon, i) => <span key={i} className="pcc-rail-icon" data-active={i === 0}><Icon size={15}/></span>)}</aside>
+    <div className="pcc-main">
+      <div className="pcc-top"><span className="pcc-sample">Sample data</span><span className="pcc-user"><Bell size={13}/><span className="pcc-avatar">MC</span>My care center</span></div>
+      <div className="pcc-head"><div><h3>Provider Command Center</h3><p>Good morning, care team</p></div><div className="pcc-actions"><span><Sparkles size={11}/>Ask Bloomy</span><span><Search size={11}/>Search IEP Report</span><span><Sprout size={11}/>Developmental Milestones</span></div></div>
+      <div className="pcc-cards">
+        <div className="pcc-card"><h4>Active Individuals</h4><div className="pcc-row"><strong>27</strong><svg viewBox="0 0 60 34" className="pcc-gauge"><path d="M5 30a25 25 0 0 1 50 0" className="track"/><path d="M5 30a25 25 0 0 1 43 -17" className="fill"/></svg></div><small>of 35 capacity · 77%</small></div>
+        <div className="pcc-card"><h4>Incident Reports</h4><div className="pcc-row"><strong>2</strong><div className="pcc-mini-bars">{[30,55,20,70,40].map((h,i) => <span key={i} style={{ height: `${h}%` }}/>)}</div></div><small>This year · all resolved</small></div>
+        <div className="pcc-card"><h4>My Today Tasks</h4><div className="pcc-row"><strong>6</strong><ListChecks size={18} className="pcc-muted"/></div><div className="pcc-progress"><span style={{ width: "66%" }}/></div><small>Completed 4 · Pending 2</small></div>
+        <div className="pcc-card"><h4>IEP Compliance</h4><div className="pcc-row"><svg viewBox="0 0 36 36" className="pcc-donut"><circle cx="18" cy="18" r="14" className="track"/><circle cx="18" cy="18" r="14" className="fill" strokeDasharray="70 88"/></svg><ul><li><i data-tone="ok"/>On track 11</li><li><i data-tone="warn"/>Attention 3</li><li><i data-tone="alert"/>Support 1</li></ul></div><small>15 active plans</small></div>
+      </div>
+      <div className="pcc-lower">
+        <div className="pcc-card pcc-chart"><h4>Individuals Onboarded (2026)</h4><svg viewBox="0 0 100 42" preserveAspectRatio="none"><polygon points={`0,42 ${pts} 100,42`} className="area"/><polyline points={pts} className="line"/></svg><div className="pcc-months">{months.map(m => <span key={m}>{m}</span>)}</div></div>
+        <div className="pcc-side">
+          <div className="pcc-card pcc-teal"><h4><ShieldCheck size={12}/>Today’s Compliance</h4><strong>100%</strong><small>As of today</small></div>
+          <div className="pcc-card pcc-navy"><h4><CalendarDays size={12}/>Today’s Sessions</h4><ul><li>Logged <b>5</b></li><li>Pending <b>3</b></li></ul></div>
+          <div className="pcc-card pcc-staff"><h4><UsersRound size={12}/>Staff Performance</h4><ul><li><i data-tone="ok"/>On track <b>9</b></li><li><i data-tone="warn"/>Monitor <b>2</b></li></ul></div>
+        </div>
+      </div>
+    </div>
   </div>;
 }
