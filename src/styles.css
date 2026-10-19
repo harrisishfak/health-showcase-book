@@ -19,18 +19,19 @@
  --radius-sm: 4px; --radius-md: 6px; --radius-lg: 8px; --radius-xl: 8px;
 }
 :root {
- /* Brand palette: navy #2F4156, teal #567C8D, sky blue #C8D9E6, beige #F5EFEB, white */
- --background: oklch(1 0 0); --foreground: oklch(.355 .044 254);
- --card: oklch(1 0 0); --primary: oklch(.55 .045 228); --primary-foreground: oklch(1 0 0);
- --navy: oklch(.355 .044 254); --navy-foreground: oklch(1 0 0);
- --secondary: oklch(.958 .009 54); --muted: oklch(.958 .009 54); --muted-foreground: oklch(.47 .035 245);
- --accent: oklch(.93 .022 240); --border: oklch(.9 .018 240); --destructive: oklch(.6 .17 25);
- --ink: oklch(.355 .044 254); --paper: oklch(.958 .009 54); --paper-muted: oklch(.47 .035 245);
- --soft-green: oklch(.93 .022 240); --success: oklch(.55 .045 228);
- --sky: oklch(.87 .03 240); --gold: oklch(.958 .009 54);
- --warn: oklch(.72 .14 65); --ok: oklch(.62 .12 160);
- --shadow-product: 0 16px 45px oklch(.3 .04 220 / .06);
- --shadow-float: 0 12px 40px oklch(.3 .04 220 / .08);
+ /* Brand hues (navy, teal, sky blue, beige, white) pushed brighter and more saturated */
+ --background: oklch(1 0 0); --foreground: oklch(.27 .06 255);
+ --card: oklch(1 0 0); --primary: oklch(.58 .13 225); --primary-glow: oklch(.72 .14 210); --primary-foreground: oklch(1 0 0);
+ --navy: oklch(.27 .06 255); --navy-foreground: oklch(1 0 0);
+ --secondary: oklch(.975 .012 230); --muted: oklch(.975 .012 230); --muted-foreground: oklch(.48 .045 250);
+ --accent: oklch(.95 .035 225); --border: oklch(.91 .025 235); --destructive: oklch(.6 .19 25);
+ --ink: oklch(.27 .06 255); --paper: oklch(.98 .01 225); --paper-muted: oklch(.48 .045 250);
+ --soft-green: oklch(.95 .045 200); --success: oklch(.6 .13 175);
+ --sky: oklch(.92 .05 230); --gold: oklch(.97 .03 70);
+ --warn: oklch(.74 .15 65); --ok: oklch(.65 .14 165);
+ --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-glow));
+ --shadow-product: 0 30px 70px -20px oklch(.58 .13 225 / .28), 0 0 0 1px oklch(.58 .13 225 / .06);
+ --shadow-float: 0 16px 44px oklch(.58 .13 225 / .14);
 }
 @layer base { * { border-color: var(--border); } body { margin: 0; background: var(--background); color: var(--foreground); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; } h1,h2,h3,p { margin: 0; } button,a { -webkit-tap-highlight-color: transparent; } button { cursor: pointer; } ::selection { background: var(--primary); color: var(--primary-foreground); } }
 @layer components {
