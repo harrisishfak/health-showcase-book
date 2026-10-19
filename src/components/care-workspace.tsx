@@ -11,7 +11,7 @@ export function CareWorkspace({ compact = false }: { compact?: boolean }) {
     <aside className="pcc-rail"><span className="pcc-logo">CV</span>{nav.map((Icon, i) => <span key={i} className="pcc-rail-icon" data-active={i === 0}><Icon size={15}/></span>)}</aside>
     <div className="pcc-main">
       <div className="pcc-top"><span className="pcc-sample">Sample data</span><span className="pcc-user"><Bell size={13}/><span className="pcc-avatar">MC</span>My care center</span></div>
-      <div className="pcc-head"><div><h3>Provider Command Center</h3><p>👋 Good morning, care team</p></div><div className="pcc-actions"><span><Sparkles size={11}/>Ask Bloomy</span><span><Search size={11}/>Search IEP Report</span><span><Sprout size={11}/>Developmental Milestones</span></div></div>
+      <div className="pcc-head"><div><h3>Provider Command Center</h3><p>Good morning, care team</p></div><div className="pcc-actions"><span><Sparkles size={11}/>Ask Bloomy</span><span><Search size={11}/>Search IEP Report</span><span><Sprout size={11}/>Developmental Milestones</span></div></div>
       <div className="pcc-cards">
         <div className="pcc-card"><h4>Active Individuals</h4><div className="pcc-row"><strong>27</strong><svg viewBox="0 0 60 34" className="pcc-gauge"><path d="M5 30a25 25 0 0 1 50 0" className="track"/><path d="M5 30a25 25 0 0 1 43 -17" className="fill"/></svg></div><small>of 35 capacity · 77%</small></div>
         <div className="pcc-card"><h4>Incident Reports</h4><div className="pcc-row"><strong>2</strong><div className="pcc-mini-bars">{[30,55,20,70,40].map((h,i) => <span key={i} style={{ height: `${h}%` }}/>)}</div></div><small>This year · all resolved</small></div>
