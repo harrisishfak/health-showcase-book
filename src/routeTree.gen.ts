@@ -11,10 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
-import { Route as BookDemoRouteImport } from './routes/book-demo'
 import { Route as PlatformRouteImport } from './routes/platform'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as SubmitInquiryRouteImport } from './routes/submit-inquiry'
 import { Route as WhoWeServeRouteImport } from './routes/who-we-serve'
 
 const IndexRoute = IndexRouteImport.update({
@@ -25,11 +25,6 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BookDemoRoute = BookDemoRouteImport.update({
-  id: '/book-demo',
-  path: '/book-demo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PlatformRoute = PlatformRouteImport.update({
@@ -47,6 +42,11 @@ const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SubmitInquiryRoute = SubmitInquiryRouteImport.update({
+  id: '/submit-inquiry',
+  path: '/submit-inquiry',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WhoWeServeRoute = WhoWeServeRouteImport.update({
   id: '/who-we-serve',
   path: '/who-we-serve',
@@ -56,29 +56,29 @@ const WhoWeServeRoute = WhoWeServeRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/book-demo': typeof BookDemoRoute
   '/platform': typeof PlatformRoute
   '/pricing': typeof PricingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/submit-inquiry': typeof SubmitInquiryRoute
   '/who-we-serve': typeof WhoWeServeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/book-demo': typeof BookDemoRoute
   '/platform': typeof PlatformRoute
   '/pricing': typeof PricingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/submit-inquiry': typeof SubmitInquiryRoute
   '/who-we-serve': typeof WhoWeServeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/book-demo': typeof BookDemoRoute
   '/platform': typeof PlatformRoute
   '/pricing': typeof PricingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/submit-inquiry': typeof SubmitInquiryRoute
   '/who-we-serve': typeof WhoWeServeRoute
 }
 export interface FileRouteTypes {
@@ -86,38 +86,38 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
-    | '/book-demo'
     | '/platform'
     | '/pricing'
     | '/privacy-policy'
+    | '/submit-inquiry'
     | '/who-we-serve'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
-    | '/book-demo'
     | '/platform'
     | '/pricing'
     | '/privacy-policy'
+    | '/submit-inquiry'
     | '/who-we-serve'
   id:
     | '__root__'
     | '/'
     | '/about'
-    | '/book-demo'
     | '/platform'
     | '/pricing'
     | '/privacy-policy'
+    | '/submit-inquiry'
     | '/who-we-serve'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  BookDemoRoute: typeof BookDemoRoute
   PlatformRoute: typeof PlatformRoute
   PricingRoute: typeof PricingRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  SubmitInquiryRoute: typeof SubmitInquiryRoute
   WhoWeServeRoute: typeof WhoWeServeRoute
 }
 
@@ -135,13 +135,6 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/book-demo': {
-      id: '/book-demo'
-      path: '/book-demo'
-      fullPath: '/book-demo'
-      preLoaderRoute: typeof BookDemoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/platform': {
@@ -165,6 +158,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/submit-inquiry': {
+      id: '/submit-inquiry'
+      path: '/submit-inquiry'
+      fullPath: '/submit-inquiry'
+      preLoaderRoute: typeof SubmitInquiryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/who-we-serve': {
       id: '/who-we-serve'
       path: '/who-we-serve'
@@ -178,10 +178,10 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  BookDemoRoute: BookDemoRoute,
   PlatformRoute: PlatformRoute,
   PricingRoute: PricingRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
+  SubmitInquiryRoute: SubmitInquiryRoute,
   WhoWeServeRoute: WhoWeServeRoute,
 }
 export const routeTree = rootRouteImport
