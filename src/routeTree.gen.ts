@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as BookDemoRouteImport } from './routes/book-demo'
 import { Route as PlatformRouteImport } from './routes/platform'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as WhoWeServeRouteImport } from './routes/who-we-serve'
 
 const IndexRoute = IndexRouteImport.update({
@@ -41,6 +42,11 @@ const PricingRoute = PricingRouteImport.update({
   path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WhoWeServeRoute = WhoWeServeRouteImport.update({
   id: '/who-we-serve',
   path: '/who-we-serve',
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/book-demo': typeof BookDemoRoute
   '/platform': typeof PlatformRoute
   '/pricing': typeof PricingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/who-we-serve': typeof WhoWeServeRoute
 }
 export interface FileRoutesByTo {
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/book-demo': typeof BookDemoRoute
   '/platform': typeof PlatformRoute
   '/pricing': typeof PricingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/who-we-serve': typeof WhoWeServeRoute
 }
 export interface FileRoutesById {
@@ -70,14 +78,28 @@ export interface FileRoutesById {
   '/book-demo': typeof BookDemoRoute
   '/platform': typeof PlatformRoute
   '/pricing': typeof PricingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/who-we-serve': typeof WhoWeServeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/about' | '/book-demo' | '/platform' | '/pricing' | '/who-we-serve'
+    | '/'
+    | '/about'
+    | '/book-demo'
+    | '/platform'
+    | '/pricing'
+    | '/privacy-policy'
+    | '/who-we-serve'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/book-demo' | '/platform' | '/pricing' | '/who-we-serve'
+  to:
+    | '/'
+    | '/about'
+    | '/book-demo'
+    | '/platform'
+    | '/pricing'
+    | '/privacy-policy'
+    | '/who-we-serve'
   id:
     | '__root__'
     | '/'
@@ -85,6 +107,7 @@ export interface FileRouteTypes {
     | '/book-demo'
     | '/platform'
     | '/pricing'
+    | '/privacy-policy'
     | '/who-we-serve'
   fileRoutesById: FileRoutesById
 }
@@ -94,6 +117,7 @@ export interface RootRouteChildren {
   BookDemoRoute: typeof BookDemoRoute
   PlatformRoute: typeof PlatformRoute
   PricingRoute: typeof PricingRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   WhoWeServeRoute: typeof WhoWeServeRoute
 }
 
@@ -134,6 +158,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/who-we-serve': {
       id: '/who-we-serve'
       path: '/who-we-serve'
@@ -150,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   BookDemoRoute: BookDemoRoute,
   PlatformRoute: PlatformRoute,
   PricingRoute: PricingRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
   WhoWeServeRoute: WhoWeServeRoute,
 }
 export const routeTree = rootRouteImport
