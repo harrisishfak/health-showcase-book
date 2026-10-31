@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, Phone, MapPin, Check, Clock3 } from "lucide-react";
+import { Mail, Phone, MapPin, Clock3 } from "lucide-react";
 import { Eyebrow } from "@/components/page-sections";
 import { pageHead } from "@/lib/site-content";
 
@@ -18,28 +18,17 @@ function BookDemo() {
           {/* Left — Info */}
           <div className="demo-left">
             <Eyebrow>A conversation, not a commitment</Eyebrow>
-            <h1 className="demo-left-title">See what a clearer<br/><em>day could look like.</em></h1>
+            <h1 className="demo-left-title">Simplify Autism & Special Needs Care<br/><em>with CareVirt.</em></h1>
             <p className="demo-left-desc">Book a free, 30-minute walkthrough. We'll listen to your challenges and show you how CareVirt could work for your center — no pressure, no commitment.</p>
 
-            <ul className="demo-benefits">
-              {[
-                "A walkthrough tailored to your workflow",
-                "A closer look at the tools your team needs",
-                "Clear answers on setup and pricing",
-                "No pressure or commitment required",
-              ].map(item => (
-                <li key={item}><span className="demo-check"><Check size={13}/></span>{item}</li>
-              ))}
-            </ul>
-
-            <div className="demo-what-to-expect">
+<div className="demo-what-to-expect">
               <div className="demo-expect-head"><Clock3 size={15}/> What to expect</div>
               <p>After submitting, a CareVirt representative will reach out within 1 business day to confirm your demo time and send calendar details.</p>
             </div>
 
             <div className="demo-contact-list">
-              <a href="mailto:sales@carevirt.com"><Mail size={15}/>sales@carevirt.com</a>
-              <a href="tel:+923477789945"><Phone size={15}/>+92 347 778 9945</a>
+              <div style={{display:"flex",gap:"20px",flexWrap:"wrap"}}><a href="mailto:sales@carevirt.com"><Mail size={15}/>sales@carevirt.com</a><a href="mailto:carevirt@gmail.com"><Mail size={15}/>carevirt@gmail.com</a></div>
+              <div style={{display:"flex",gap:"20px",flexWrap:"wrap"}}><a href="tel:+923477789945"><Phone size={15}/>+92 347 778 9945</a><a href="tel:04237452839"><Phone size={15}/>042-37452839</a></div>
               <span><MapPin size={15}/>Lahore, Pakistan</span>
             </div>
           </div>
