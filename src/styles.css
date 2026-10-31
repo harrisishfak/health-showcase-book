@@ -320,7 +320,7 @@
  .product-window { height:340px; } .product-sidebar { display:none; } .product-main { padding:20px; } .product-stat strong { font-size:22px; }
  .bloomy-note { position:static; width:100%; margin-top:20px; box-shadow:none; }
  .steps { grid-template-columns:1fr; gap:16px; } .steps h3 { font-size:17px; } .steps p { font-size:13px; }
- .testimonial-card { padding:32px 28px; } .testimonial-card blockquote { font-size:17px; } .testimonial-author { flex-wrap:wrap; gap:14px; } .testimonial-metric { border-left:none; padding:0; border-top:1px solid rgba(255,255,255,.1); padding-top:10px; text-align:left; } .about-cv-layout { grid-template-columns:1fr; gap:40px; } .about-cv-heading { font-size:30px; }
+ .testimonial-card { padding:32px 28px; height:auto; min-height:unset; } .testimonial-card blockquote { font-size:17px; overflow:visible; } .testimonial-author { flex-wrap:wrap; gap:14px; margin-top:24px; } .testimonial-metric { border-left:none; padding:0; border-top:1px solid rgba(255,255,255,.1); padding-top:10px; text-align:left; } .about-cv-layout { grid-template-columns:1fr; gap:40px; } .about-cv-heading { font-size:30px; }
  .cta-band { display:block; padding:60px 0; } .cta-band h2 { font-size:32px; } .cta-band p { font-size:14px; } .cta-band a { margin-top:25px; width:100%; height:48px; }
  .footer-top { grid-template-columns:1fr 1fr; gap:40px; } .footer-brand { grid-column:1 / 3; } .footer-column:last-child { grid-column:1 / 3; }
  .page-intro { padding:50px 0; } .page-intro h1 { font-size:38px; } .page-intro p { font-size:15px; }
@@ -333,8 +333,15 @@
 }
 @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none !important; transition:none !important; scroll-behavior:auto !important; } }
 @media(min-width:1001px) { .site-header .mobile-menu-trigger { display:none; } .welcome-copy .eyebrow .eyebrow-dot { display:block; } }
-@media(max-width:1000px) { .desktop-nav,.header-actions .login-dropdown-wrap:not(.mobile-login) { display:none; } .site-header .mobile-menu-trigger { display:inline-flex; } }
- .mobile-login { width:100%; } .mobile-login .header-login { width:100%; padding:14px 0; font-size:15px; } .mobile-login .login-dropdown { position:static; box-shadow:none; border:1px solid var(--border); margin-top:6px; }
+@media(max-width:1000px) { .desktop-nav,.header-actions .login-dropdown-wrap:not(.mobile-login) { display:none; } .site-header .mobile-menu-trigger { display:inline-flex; } .brand .brand-logo { display:none !important; } }
+ .mobile-login { width:100%; }
+ .mobile-login .header-login { width:100%; padding:14px 0; font-size:15px; justify-content:space-between; }
+ .mobile-login .login-dropdown { position:static; box-shadow:none; border:1px solid var(--border); margin-top:6px; width:100%; }
+ .mobile-login .who-dropdown { min-width:unset; width:100%; }
+ .mobile-login .operate-dropdown { min-width:unset; width:100%; }
+ .mobile-login .cv-standards-dropdown { position:static; transform:none; width:100%; grid-template-columns:1fr; box-shadow:none; border:1px solid var(--border); margin-top:6px; border-radius:10px; }
+ .mobile-login .cv-standards-col { border-right:none; border-bottom:1px solid var(--border); padding:20px 16px; }
+ .mobile-login .cv-standards-col:last-child { border-bottom:none; }
 
 @layer components {
  .modern-hero { padding:54px 0 44px; }
