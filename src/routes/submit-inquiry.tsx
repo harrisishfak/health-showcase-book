@@ -21,7 +21,7 @@ function BookDemo() {
     setDismissed(false);
     timerRef.current = setTimeout(() => {
       setTimedOut(true);
-    }, 5000);
+    }, 10000);
     return () => clearTimeout(timerRef.current);
   }, [key]);
 
