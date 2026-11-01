@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, Phone, MapPin, Clock3, RefreshCw, X } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { Mail, Phone, MapPin, Clock3 } from "lucide-react";
 import { Eyebrow } from "@/components/page-sections";
 import { pageHead } from "@/lib/site-content";
+import { InquiryForm } from "@/components/inquiry-form";
 
 export const Route = createFileRoute("/submit-inquiry")({
   head: () => pageHead("Book your free CareVirt demo", "Book a free 30-minute CareVirt demo. Tell us about your care center and see how connected profiles, scheduling, care plans, and family updates could fit your workflow."),
@@ -10,25 +10,6 @@ export const Route = createFileRoute("/submit-inquiry")({
 });
 
 function BookDemo() {
-  const iframeSrc = import.meta.env["VITE_DEMO_FORM_URL"] as string;
-  const [timedOut, setTimedOut] = useState(false);
-  const [dismissed, setDismissed] = useState(false);
-  const [key, setKey] = useState(0);
-  const timerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
-
-  useEffect(() => {
-    setTimedOut(false);
-    setDismissed(false);
-    timerRef.current = setTimeout(() => {
-      setTimedOut(true);
-    }, 10000);
-    return () => clearTimeout(timerRef.current);
-  }, [key]);
-
-  function handleRetry() {
-    setKey(k => k + 1);
-  }
-
   return (
     <main className="demo-page">
       <div className="wrap">
@@ -52,33 +33,11 @@ function BookDemo() {
             </div>
           </div>
 
-          {/* Right — Embedded Rails form */}
-          <div className="demo-right demo-right--iframe">
-            <div style={{position:"relative"}}>
-              <iframe
-                key={key}
-                src={iframeSrc}
-                width="100%"
-                height="900"
-                frameBorder="0"
-                scrolling="no"
-                style={{ border: "none", borderRadius: "12px", overflow: "hidden", display: "block" }}
-                title="Book a Demo — CareVirt"
-              />
-              {timedOut && !dismissed && (
-                <div className="iframe-fallback">
-                  <button className="iframe-dismiss-btn" onClick={() => setDismissed(true)} aria-label="Dismiss"><X size={14}/></button>
-                  <p>The form is taking longer than expected to load.</p>
-                  <button className="iframe-retry-btn" onClick={handleRetry}>
-                    <RefreshCw size={15}/> Reload Inquiry Form
-                  </button>
-                  <p style={{fontSize:"13px",color:"var(--muted-foreground)",margin:0}}>
-                    or<br/><a href="https://www.facebook.com/carevirt/" target="_blank" rel="noopener noreferrer" style={{color:"#226BA8",fontWeight:700,textDecoration:"underline",textUnderlineOffset:"3px"}}>Contact us here</a>
-                  </p>
-                </div>
-              )}
-            </div>
+          {/* Right — Inquiry Form */}
+          <div className="demo-right demo-right--fallback">
+            <InquiryForm/>
           </div>
+
         </div>
       </div>
     </main>
