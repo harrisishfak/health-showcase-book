@@ -12,7 +12,7 @@ import { OfferingsSection } from "@/components/offerings-section";
 const heroWords = ["Made Simpler.", "Better Connected.", "Built Around Every Individual."];
 
 export const Route = createFileRoute("/")({
-  head: () => pageHead("Autism & IDD care-management software", "CareVirt brings individual profiles, sessions, care plans, and family updates together. Purpose-built for autism and IDD care in low-resource settings."),
+  head: () => pageHead("Autism & Special Needs Care Software", "CareVirt connects care teams, families, and essential care information to support coordinated care, track individual progress, and improve continuity for autism and special-needs centres."),
   component: Index,
 });
 function Index() {
@@ -38,5 +38,5 @@ function Index() {
         <em className="hero-rotating-word" style={{opacity: fade ? 1 : 0, transition: "opacity 0.4s ease"}}>{heroWords[wordIdx]}</em>
         </h1>
 
-        <p>We help care centres deliver consistent, person-centred care — simplifying daily operations, improving efficiency, and strengthening family trust, so clients stay longer and every individual achieves better outcomes.</p><div className="hero-buttons"><Button asChild size="lg"><Link to="/submit-inquiry">Book a Demo <ArrowUpRight/></Link></Button><Button asChild size="lg" variant="outline"><a href="#how-it-works">See How It Works <ArrowRight/></a></Button></div><div className="benefit-strip"><span><Check/>Care Visibility Is The New Standard.</span><span><Check/>Staff Changes Shouldn't Disrupt Care.</span><span><Check/>Turn Invisible Care into Visible Progress.</span></div></div><div className="workspace-hero-stage hero-reveal"><CareWorkspace/></div></div></section><OperatingCountries/><OfferingsSection/><ModuleSection/><StepsSection/><TestimonialCarousel/><AboutSection/><CtaSection/></main>;
+        <p>We help care centres deliver consistent, person-centred care — simplifying daily operations, improving efficiency, and strengthening family trust, so clients stay longer and every individual achieves better outcomes.</p><div className="hero-buttons"><Button asChild size="lg"><Link to="/submit-inquiry">Book a Demo <ArrowUpRight/></Link></Button><Button asChild size="lg" variant="outline"><a href="#how-it-works">See CareVirt in Action <ArrowRight/></a></Button></div><div className="benefit-strip"><span><Check/>Care Visibility Is The New Standard.</span><span><Check/>Staff Changes Shouldn't Disrupt Care.</span><span><Check/>Turn Invisible Care into Visible Progress.</span></div></div><div className="workspace-hero-stage hero-reveal"><CareWorkspace/></div></div></section><OperatingCountries/><OfferingsSection/><ModuleSection/><StepsSection/><TestimonialCarousel/><AboutSection/><CtaSection/></main>;
 }
