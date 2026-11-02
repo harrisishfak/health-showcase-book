@@ -8,11 +8,27 @@ import {
   Scripts,
   type ErrorComponentProps,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader, SiteFooter, MessengerWidget, ScrollToTopWidget } from "@/components/site-shell";
+import { X } from "lucide-react";
+
+function ParamAlert() {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("message") === "token-expired") setVisible(true);
+  }, []);
+  if (!visible) return null;
+  return (
+    <div className="param-alert">
+      <span>Your session has expired. Please log in again.</span>
+      <button onClick={() => setVisible(false)} aria-label="Dismiss"><X size={15}/></button>
+    </div>
+  );
+}
 
 function NotFoundComponent() {
   return (
@@ -122,6 +138,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <ParamAlert />
       <SiteHeader />
       <Outlet />
       <SiteFooter />
