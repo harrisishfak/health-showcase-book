@@ -130,7 +130,7 @@ export function InquiryForm() {
   }
 
   return (
-    <form className="inq-form" onSubmit={handleSubmit} noValidate>
+    <form className="inq-form" onSubmit={handleSubmit} >
 
       <div className="inq-row">
         <div className="inq-field">
@@ -166,7 +166,7 @@ export function InquiryForm() {
           </div>
           <div className="inq-field">
             <label htmlFor="organization_type">Organization Type</label>
-            <select id="organization_type" value={formData.organization_type} onChange={e => set("organization_type", e.target.value)}>
+            <select id="organization_type" required value={formData.organization_type} onChange={e => set("organization_type", e.target.value)}>
               <option value="">Select type</option>
               {orgTypes.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
             </select>
