@@ -11,6 +11,6 @@ export default defineConfig({
     },
   },
   vite: {
-    base: "/health-showcase-book/",
+    base: "/",
   },
 });
