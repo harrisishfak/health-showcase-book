@@ -34,7 +34,7 @@ export function AboutSection() {
   const features = [
     { icon: Heart, title:"Care That Actually Reaches People", body:"When admin burden drops, therapists show up fully — and individuals feel the difference." },
     { icon: Activity, title:"Growth That Doesn't Break Systems", body:"More clients, more staff, more sessions — CareVirt keeps your center structured as it scales." },
-    { icon: Users, title:"Built for Your World", body:"We're not a generic software company. We work specifically with IDD and Autism centers — your challenges are ones we know well." },
+    { icon: Users, title:"Built for Your World", body:"We're not a generic software company. We work specifically with Autism and Special Needs Centers — your challenges are ones we know well." },
   ];
   const outcomes = [
     { icon: Heart, color:"#226BA8", title:"Consistent, Personalized Care", body:"Every individual gets the attention they deserve." },
@@ -48,7 +48,7 @@ export function AboutSection() {
           <div className="about-cv-left">
             <Eyebrow>About CareVirt</Eyebrow>
             <h2 className="about-cv-heading">Eliminate the chaos.<br/><span>Amplify the care.</span></h2>
-            <p className="about-cv-desc">We eliminate operational chaos and growth breakdowns from Autism and IDD centers — so they can focus on what they're actually here to do: deliver consistent care, improve outcomes, and scale their impact.</p>
+            <p className="about-cv-desc">We eliminate operational chaos and growth breakdowns from Autism and Special Needs Centers — so they can focus on what they're actually here to do: deliver consistent care, improve outcomes, and scale their impact.</p>
             <div className="about-cv-features">
               {features.map(({ icon: Icon, title, body }) => <div className="about-cv-feature" key={title}>
                 <span className="about-cv-icon"><Icon size={18}/></span>

@@ -96,7 +96,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "CareVirt | Care with clarity" },
-      { name: "description", content: "Care-management software built for autism and IDD care providers." },
+      { name: "description", content: "Care-management software built for autism and special needs care providers." },
       { property: "og:title", content: "CareVirt | Care with clarity" },
       { property: "og:description", content: "Connect your team, care plans, and families with CareVirt." },
       { property: "og:type", content: "website" },
