@@ -106,6 +106,12 @@
  .country { display:flex; align-items:center; gap:10px; font-size:13.5px; font-weight:600; background:#e8f1f8; border:1px solid #b8d4ea; color:#226BA8; border-radius:999px; padding:7px 16px 7px 10px; transition:background .2s, box-shadow .2s; }
  .country:hover { background:#d6e8f5; box-shadow:0 2px 10px rgba(34,107,168,.12); }
  .country-flag { font-size:20px; line-height:1; }
+ /* Relationship Flow Diagram */
+ .rel-flow-diagram { display:flex; align-items:center; justify-content:center; background:linear-gradient(145deg,#f8fbff 0%,#eef6ff 100%); border-radius:16px; min-height:360px; padding:20px 12px; box-sizing:border-box; }
+ .rel-flow-svg { width:100%; height:auto; }
+ @keyframes rfDash { to { stroke-dashoffset:-28; } }
+ .rf-dash { animation:rfDash 1.6s linear infinite; }
+ .rf-dash-2 { animation-delay:0.4s; }
  .light-band { background:var(--paper); color:var(--foreground); padding:90px 0; }
  .standard-band { background:var(--background); color:var(--foreground); padding:90px 0; }
  .section-head { display:flex; align-items:flex-end; justify-content:space-between; gap:60px; margin-bottom:45px; }
@@ -120,7 +126,7 @@
  .feature-item:nth-child(3n+2) .feature-icon { background:var(--sky); }
  .feature-item:nth-child(3n) .feature-icon { background:var(--gold); }
  .module-tabs { display:flex; gap:12px; margin:35px 0 45px; }
- .module-layout { display:grid; grid-template-columns:1fr 1.15fr; gap:80px; align-items:center; }
+ .module-layout { display:grid; grid-template-columns:1fr 1.15fr; gap:80px; align-items:start; }
  .module-content h3 { font-size:36px; line-height:1.25; font-weight:750; margin:18px 0 22px; }
  .module-content p { font-size:16px; line-height:1.8; color:var(--muted-foreground); }
  .check-list { list-style:none; padding:0; margin:25px 0 30px; display:grid; gap:14px; font-size:15px; }
