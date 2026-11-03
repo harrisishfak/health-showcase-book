@@ -1,8 +1,153 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Building2, Stethoscope, ArrowUpRight } from "lucide-react";
-import { CheckList, CtaSection } from "@/components/page-sections";
+import { ArrowUpRight } from "lucide-react";
+import { CheckList, CtaSection, Eyebrow } from "@/components/page-sections";
 import { Button } from "@/components/ui/button";
 import { pageHead } from "@/lib/site-content";
 
-export const Route = createFileRoute("/pricing")({ head: () => pageHead("Pricing for your care practice", "Talk to CareVirt about pricing for independent providers and care organizations. Find the right fit for your team, workflow, and care-management needs."), component: Pricing });
-function Pricing() { return <main><section className="pricing-hero"><div className="wrap"><div className="pricing-grid"><article className="price-card"><Stethoscope size={28}/><h2>Independent provider</h2><p>For solo practitioners who want a more organized practice and more time for the people they support.</p><CheckList items={["Individual profiles and care history", "Sessions, notes, and goal tracking", "A clearer view of client progress"]}/><Button asChild variant="paper" size="lg" className="price-action"><a href="https://app.carevirt.com/sign_up?tab=provider_individual&pricing_inquiry=1">Get provider pricing <ArrowUpRight/></a></Button></article><article className="price-card"><Building2 size={28}/><h2>Care organization</h2><p>For centers and multidisciplinary teams bringing care, people, and daily operations together.</p><CheckList items={["Connected team workflows and schedules", "Shared care plans and responsibilities", "Center-wide progress visibility"]}/><Button asChild variant="paper" size="lg" className="price-action"><a href="https://app.carevirt.com/sign_up?tab=provider_organization&pricing_inquiry=1">Get organization pricing <ArrowUpRight/></a></Button></article></div></div></section><section className="standard-band"><div className="wrap faq-wrap"><h2 className="section-title">A few things you might be wondering.</h2>{[{q:"Can I see CareVirt before committing?",a:"Yes. Book a free, personalized 30-minute demo. We'll learn about your workflow, show you the platform, and answer your questions — with no commitment required."},{q:"Will you help our team get started?",a:"Yes. A CareVirt representative helps onboard your center and train staff around their roles. Our team also provides ongoing support. We'll discuss your onboarding timeline during the demo."},{q:"Is CareVirt designed for autism and IDD care?",a:"Yes. CareVirt focuses on autism and intellectual and developmental disabilities (IDD) care providers, including centers, special education teams, and independent practitioners in low-resource settings."},{q:"How do I find the right option for my center?",a:"Choose the provider or organization pricing inquiry above, or book a demo to discuss your team, caseload, and day-to-day needs."}].map(f => <details className="faq-item" key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>)}</div></section><CtaSection/></main>; }
+export const Route = createFileRoute("/pricing")({
+  head: () => pageHead("Pricing", "Simple, transparent pricing for care organizations in Pakistan and internationally. One individual gives you one staff and one role."),
+  component: Pricing,
+});
+
+function Pricing() {
+  return (
+    <main>
+      <section className="pricing-hero">
+        <div className="wrap">
+          <Eyebrow>Plans &amp; Pricing</Eyebrow>
+          <h1 className="pricing-hero-title">
+            Straightforward pricing,<br />
+            <em>wherever you are.</em>
+          </h1>
+          <p className="pricing-hero-desc">
+            Each individual in your package includes one staff seat and one role. Choose your region to get started.
+          </p>
+
+          <div className="pricing-grid">
+
+            {/* Domestic */}
+            <article className="price-card">
+              <div className="price-card-region">
+                <span className="price-card-badge price-card-badge--green">Domestic</span>
+              </div>
+              <h2>Pakistan</h2>
+              <div className="price-card-countries">
+                <span>🇵🇰 Pakistan</span>
+              </div>
+              <div className="price-card-pricing">
+                <div className="price-card-was">
+                  <s>1799 PKR</s>
+                  <span>/ per individual / mo</span>
+                </div>
+                <div className="price-card-now">
+                  <strong>999</strong>
+                  <div className="price-card-unit">
+                    <span className="price-card-currency">PKR</span>
+                    <span className="price-card-period">/ per individual / mo</span>
+                  </div>
+                </div>
+                <p className="price-card-note">First-year introductory price</p>
+              </div>
+              <CheckList items={[
+                "1 staff seat per individual",
+                "1 role per individual",
+                "Access to all modules",
+              ]} />
+              <Button asChild variant="paper" size="lg" className="price-action">
+                <a href="https://app.carevirt.com/sign_up?tab=provider_organization&region=domestic">
+                  Start Free Trial <ArrowUpRight />
+                </a>
+              </Button>
+            </article>
+
+            {/* International */}
+            <article className="price-card">
+              <div className="price-card-region">
+                <span className="price-card-badge price-card-badge--blue">International</span>
+              </div>
+              <h2>Global Markets</h2>
+              <div className="price-card-countries">
+                <span>🇬🇭 Ghana</span>
+                <span>🇿🇦 South Africa</span>
+                <span>🇧🇩 Bangladesh</span>
+              </div>
+              <div className="price-card-pricing">
+                <div className="price-card-was price-card-was--empty" aria-hidden="true" />
+                <div className="price-card-now">
+                  <strong>$7</strong>
+                  <div className="price-card-unit">
+                    <span className="price-card-currency">USD</span>
+                    <span className="price-card-period">/ per individual / mo</span>
+                  </div>
+                </div>
+                <p className="price-card-note">Flat rate</p>
+              </div>
+              <CheckList items={[
+                "1 staff seat per individual",
+                "1 role per individual",
+                "Access to all modules",
+              ]} />
+              <Button asChild variant="paper" size="lg" className="price-action">
+                <a href="https://app.carevirt.com/sign_up?tab=provider_organization&region=international">
+                  Start Free Trial <ArrowUpRight />
+                </a>
+              </Button>
+            </article>
+
+          </div>
+
+          <div className="pricing-scale">
+            <div className="pricing-scale-label">How it scales</div>
+            <div className="pricing-scale-steps">
+              <div className="pricing-scale-step" data-start="true">
+                <strong>10</strong>
+                <span>individuals</span>
+                <em>Minimum</em>
+              </div>
+              <div className="pricing-scale-flow">
+                <span>11, 12, 13 …</span>
+                <small>add as many as you need, one at a time</small>
+              </div>
+            </div>
+            <p className="pricing-scale-note">Plans start at 10 individuals. After that, add one individual at a time — pay only for what you need.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="standard-band">
+        <div className="wrap faq-wrap">
+          <h2 className="section-title">A few things you might be wondering.</h2>
+          {[
+            {
+              q: "What counts as an individual?",
+              a: "An individual is a client in your care. Each individual you add to your plan gives your team one staff seat and one role in the platform, and access to all modules.",
+            },
+            {
+              q: "Why is there a minimum of 10 individuals?",
+              a: "The minimum package of 10 individuals keeps the platform viable and ensures your team has enough capacity to operate effectively from day one.",
+            },
+            {
+              q: "Can I see CareVirt before committing?",
+              a: "Yes. Book a free, personalized 30-minute demo. We'll learn about your workflow, show you the platform, and answer your questions — with no commitment required.",
+            },
+            {
+              q: "Will you help our team get started?",
+              a: "Yes. A CareVirt representative helps onboard your center and train staff around their roles. Our team also provides ongoing support. We'll discuss your onboarding timeline during the demo.",
+            },
+            {
+              q: "Is the domestic introductory price guaranteed?",
+              a: "The 999 PKR rate is locked in for your first year. Renewal pricing will be communicated well in advance so you can plan accordingly.",
+            },
+          ].map((f) => (
+            <details className="faq-item" key={f.q}>
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <CtaSection />
+    </main>
+  );
+}
