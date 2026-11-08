@@ -25,7 +25,7 @@ function Index() {
        setWordIdx(i => (i + 1) % heroWords.length);
        setFade(true);
      }, 400);
-   }, 5000);
+   }, 3000);
    return () => clearInterval(interval);
  }, []);
  return <main>
