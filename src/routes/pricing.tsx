@@ -196,7 +196,7 @@ function Pricing() {
               <div className="price-actions">
                 <Button asChild size="lg" className="price-action">
                   <a href="https://app.carevirt.com/sign_up?tab=provider_organization&region=domestic">
-                    Start Free Trial <ArrowUpRight />
+                    Start Free Trial 
                   </a>
                 </Button>
                 <Button variant="paper" size="lg" className="price-action" onClick={() => setModal("domestic")}>
@@ -235,7 +235,7 @@ function Pricing() {
               <div className="price-actions">
                 <Button asChild size="lg" className="price-action">
                   <a href="https://app.carevirt.com/sign_up?tab=provider_organization&region=international">
-                    Start Free Trial <ArrowUpRight />
+                    Start Free Trial 
                   </a>
                 </Button>
                 <Button variant="paper" size="lg" className="price-action" onClick={() => setModal("international")}>
