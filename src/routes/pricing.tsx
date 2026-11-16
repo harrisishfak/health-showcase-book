@@ -246,6 +246,17 @@ function Pricing() {
 
           </div>
 
+          <div className="guardian-retail">
+            <div className="guardian-retail-label">Guardian Retail Pricing</div>
+            <div className="guardian-retail-price">
+              <strong>PKR 2,000</strong>
+              <span>/ individual / month</span>
+            </div>
+            <p className="guardian-retail-desc">
+              Offer CareVirt as part of your monthly care package, create additional value for families, and generate recurring revenue for your centre.
+            </p>
+          </div>
+
           <div className="pricing-scale">
             <div className="pricing-scale-label">How it scales</div>
             <div className="pricing-scale-steps">

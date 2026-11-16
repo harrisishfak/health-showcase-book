@@ -404,6 +404,12 @@
  .estimate-contact-btn { width:100%; justify-content:center; }
  .estimate-trial-btn { width:100%; justify-content:center; margin-top:14px; }
  .pricing-note { font-size:14px; color:var(--muted-foreground); margin-top:30px; line-height:1.8; text-align:center; max-width:800px; margin-inline:auto; }
+ .guardian-retail { margin-top:36px; background:var(--paper); border:1px solid var(--border); border-radius:12px; padding:24px 28px; display:flex; flex-direction:column; gap:8px; }
+ .guardian-retail-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.07em; color:var(--primary); }
+ .guardian-retail-price { display:flex; align-items:baseline; gap:8px; }
+ .guardian-retail-price strong { font-size:28px; font-weight:800; color:var(--foreground); }
+ .guardian-retail-price span { font-size:14px; color:var(--muted-foreground); }
+ .guardian-retail-desc { font-size:14px; color:var(--muted-foreground); line-height:1.7; margin:0; }
  .pricing-scale { margin-top:36px; background:var(--paper); border:1px solid var(--border); border-radius:12px; padding:24px 28px; }
  .pricing-scale-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.07em; color:var(--primary); margin-bottom:14px; }
  .pricing-scale-steps { display:flex; align-items:center; gap:0; flex-wrap:wrap; }
