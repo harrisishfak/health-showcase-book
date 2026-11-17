@@ -133,7 +133,7 @@ function EstimateModal({ plan, onClose }: { plan: Plan; onClose: () => void }) {
               {plan.currency === "PKR" ? "First-year introductory price." : "Flat rate."} Billed monthly.
             </p>
             <Button asChild variant="paper" size="lg" className="estimate-trial-btn">
-              <a href={plan.signupUrl}>Start Free Trial Today! <ArrowUpRight size={16} /></a>
+              <a href={plan.signupUrl}>Get Started Free <ArrowUpRight size={16} /></a>
             </Button>
           </>
         ))}
@@ -196,7 +196,7 @@ function Pricing() {
               <div className="price-actions">
                 <Button asChild size="lg" className="price-action">
                   <a href="https://app.carevirt.com/sign_up?tab=provider_organization&region=domestic">
-                    Start Free Trial 
+                    Get Started Free
                   </a>
                 </Button>
                 <Button variant="paper" size="lg" className="price-action" onClick={() => setModal("domestic")}>
@@ -235,7 +235,7 @@ function Pricing() {
               <div className="price-actions">
                 <Button asChild size="lg" className="price-action">
                   <a href="https://app.carevirt.com/sign_up?tab=provider_organization&region=international">
-                    Start Free Trial 
+                    Get Started Free
                   </a>
                 </Button>
                 <Button variant="paper" size="lg" className="price-action" onClick={() => setModal("international")}>
