@@ -40,19 +40,31 @@ const PLANS: Record<string, Plan> = {
   },
 };
 
+const PROVIDER_TYPES = [
+  { value: "organization", label: "Organization", min: 10 },
+  { value: "independent", label: "Independent Provider", min: 2 },
+] as const;
+
 function EstimateModal({ plan, onClose }: { plan: Plan; onClose: () => void }) {
-  const [raw, setRaw] = useState("10");
+  const [providerType, setProviderType] = useState<"organization" | "independent">("organization");
+  const minCount = providerType === "organization" ? 10 : 2;
+  const [raw, setRaw] = useState(String(minCount));
   const count = parseInt(raw) || 0;
-  const selectRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    selectRef.current?.focus();
+    inputRef.current?.focus();
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
 
-  const underMin = raw === "" || count < 10;
+  const handleProviderChange = (val: "organization" | "independent") => {
+    setProviderType(val);
+    setRaw(String(val === "organization" ? 10 : 2));
+  };
+
+  const underMin = raw === "" || count < minCount;
   const overLimit = count > 100;
   const staffSeats = Math.floor(count / 2);
   const roles = Math.floor(count / 2);
@@ -75,22 +87,34 @@ function EstimateModal({ plan, onClose }: { plan: Plan; onClose: () => void }) {
           </div>
         </div>
 
+        <label className="estimate-label" htmlFor="est-provider-type">Provider type</label>
+        <select
+          id="est-provider-type"
+          className="estimate-select"
+          value={providerType}
+          onChange={e => handleProviderChange(e.target.value as "organization" | "independent")}
+        >
+          {PROVIDER_TYPES.map(pt => (
+            <option key={pt.value} value={pt.value}>{pt.label}</option>
+          ))}
+        </select>
+
         <label className="estimate-label" htmlFor="est-count">Number of individuals</label>
         <div className="estimate-input-row">
           <input
-            ref={selectRef}
+            ref={inputRef}
             id="est-count"
             className={`estimate-input${underMin ? " estimate-input--error" : ""}`}
             type="number"
-            min={1}
+            min={minCount}
             value={raw}
-            placeholder="e.g. 20"
+            placeholder={`e.g. ${minCount}`}
             onChange={e => setRaw(e.target.value)}
           />
-          <span className="estimate-input-min">min. 10</span>
+          <span className="estimate-input-min">min. {minCount}</span>
         </div>
         {underMin && (
-          <p className="estimate-undermin">Minimum plan starts at 10 individuals.</p>
+          <p className="estimate-undermin">Minimum is {minCount} individuals for {providerType === "organization" ? "organizations" : "independent providers"}.</p>
         )}
 
         {!underMin && (overLimit ? (
@@ -259,18 +283,38 @@ function Pricing() {
 
           <div className="pricing-scale">
             <div className="pricing-scale-label">How it scales</div>
-            <div className="pricing-scale-steps">
-              <div className="pricing-scale-step" data-start="true">
-                <strong>10</strong>
-                <span>individuals</span>
-                <em>Minimum</em>
+            <div className="pricing-scale-tiers">
+              <div className="pricing-scale-tier">
+                <div className="pricing-scale-tier-label">Organization</div>
+                <div className="pricing-scale-steps">
+                  <div className="pricing-scale-step" data-start="true">
+                    <strong>10</strong>
+                    <span>individuals</span>
+                    <em>Minimum</em>
+                  </div>
+                  <div className="pricing-scale-flow">
+                    <span>11, 12, 13 …</span>
+                    <small>add one at a time</small>
+                  </div>
+                </div>
               </div>
-              <div className="pricing-scale-flow">
-                <span>11, 12, 13 …</span>
-                <small>add as many as you need, one at a time</small>
+              <div className="pricing-scale-tier-divider" />
+              <div className="pricing-scale-tier">
+                <div className="pricing-scale-tier-label">Independent Provider</div>
+                <div className="pricing-scale-steps">
+                  <div className="pricing-scale-step" data-start="true">
+                    <strong>2</strong>
+                    <span>individuals</span>
+                    <em>Minimum</em>
+                  </div>
+                  <div className="pricing-scale-flow">
+                    <span>3, 4, 5 …</span>
+                    <small>add one at a time</small>
+                  </div>
+                </div>
               </div>
             </div>
-            <p className="pricing-scale-note">Plans start at 10 individuals. After that, add one individual at a time — pay only for what you need.</p>
+            <p className="pricing-scale-note">Organizations start at 10 individuals; independent providers start at 2. After the minimum, add one individual at a time — pay only for what you need.</p>
           </div>
         </div>
       </section>
